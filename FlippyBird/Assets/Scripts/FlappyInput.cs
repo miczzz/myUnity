@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class FlappyInput : MonoBehaviour {
 
@@ -28,6 +29,13 @@ public class FlappyInput : MonoBehaviour {
     {
         gameObject.GetComponent<Rigidbody>().velocity = new Vector3(0f,0f,0f);
         gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(0f, jumpforce, 0f));
+    }
+
+    void OnCollisionEnter()
+    {
+        Debug.Log("Collision Detected");
+        SceneManager.LoadScene(0);
+
     }
 
 }
